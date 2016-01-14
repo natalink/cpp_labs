@@ -34,7 +34,7 @@ public:
 	}
 
 	template<size_t idx>
-        size_t find(const type<idx>& value)
+        size_t erase(const type<idx>& value)
         {
 		size_t count;
                 for (row_def &tup : vt) {
