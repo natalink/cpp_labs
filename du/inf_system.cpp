@@ -1,30 +1,46 @@
+// ConsoleApplication5.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
 #include <iostream>
 #include "inf_system.h"
-#include <vector>       
+#include <vector>
+#include <string>
 
 using namespace std;
 
+vector<inf_system::row_def> vt;
+inf_system::row_def row_def;
 
-vector<tuple> vector_of_tuples;
 
-void inf_system::insert(const string& first_name, const std::string& last_name, const position& position,
-const size_t& telephone, const std::string& address){
-    auto t = make_tuple(first_name, last_name, position, telephone, address);
-    cout << "Pridano: " << first_name << endl;
-  //  add_to_vector_of_tuples
-    vector_of_tuples.push_back(t);
-    
+void inf_system::insert(const string& first_name, const std::string& last_name, const position& position, const size_t& telephone, const std::string& address){
+	auto t = make_tuple(first_name, last_name, position, telephone, address);
+	cout << "Pridano: " << telephone << endl;
+	vt.push_back(make_tuple(first_name, last_name, position, telephone, address));
+}
+
+void print_vector(const vector<inf_system::row_def>& vector) {
+	for (const auto& r : vector) {
+		cout << get<0>(r) << " " << get<1>(r) << " " << get<2>(r) <<
+			" " << get<3>(r) << " " << get<4>(r) << endl;
+	}
 }
 
 int main(){
-    inf_system inf_system;
-    inf_system.insert("Pepa", "Skoba", student, 2343241324, "adresa nejaka");
+	inf_system inf_system;
+	inf_system.insert("Pepa", "Skoba", student, 2343241324, "adresa Pepy");
+	inf_system.insert("Adam", "Jarous", student, 34541324, "adresa Adama");
+	inf_system.insert("Jarda", "Skoba", teacher, 34541324, "adresa Jardy");
+	print_vector(vt);
+	system("pause");
 
- 
-}  
-void print_vector(const vector<inf_system::row_def_const_ptr>& vector) {
-    for (const auto& r : vector) {
-        cout << get<0>(*r) << " " << get<1>(*r) << " " << get<2>(*r) <<
-        " " << get<3>(*r) << " " << get<4>(*r) << endl;
-    }
+
 }
+
+//vector<inf_system::row_def> find<idx>(const type<idx>& value) {
+//	for (inf_system::row_def &tup : vt) {
+//		cout << get<idx>(tup) << endl;
+//
+//	}
+//}
+
