@@ -38,9 +38,14 @@ int main(){
 }
 
 //vector<inf_system::row_def> find<idx>(const type<idx>& value) {
+//	vector<inf_system::row_def> subvector;
 //	for (inf_system::row_def &tup : vt) {
 //		cout << get<idx>(tup) << endl;
+//		if (get<idx>(tup) == value) {
+//			subvector.push_back(tup);
+//		}
 //
 //	}
+//	return subvector;	
 //}
 
