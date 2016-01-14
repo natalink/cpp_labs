@@ -1,7 +1,4 @@
-// ConsoleApplication5.cpp : Defines the entry point for the console application.
-//
 
-#include "stdafx.h"
 #include <iostream>
 #include "inf_system.h"
 #include <vector>
@@ -31,21 +28,15 @@ int main(){
 	inf_system.insert("Pepa", "Skoba", student, 2343241324, "adresa Pepy");
 	inf_system.insert("Adam", "Jarous", student, 34541324, "adresa Adama");
 	inf_system.insert("Jarda", "Skoba", teacher, 34541324, "adresa Jardy");
-	print_vector(vt);
+	
+	auto result = inf_system.find<1>("Skoba");
+
+	print_vector(result);
+	
+	auto count = inf_system.erase<1>("Skoba");
+
+	cout << "Number of deleted lines: " << count << endl;
+	
 	system("pause");
-
-
 }
-
-//vector<inf_system::row_def> find<idx>(const type<idx>& value) {
-//	vector<inf_system::row_def> subvector;
-//	for (inf_system::row_def &tup : vt) {
-//		cout << get<idx>(tup) << endl;
-//		if (get<idx>(tup) == value) {
-//			subvector.push_back(tup);
-//		}
-//
-//	}
-//	return subvector;	
-//}
 
