@@ -34,8 +34,6 @@ int main(){
 	print_vector(result);
 	
 	auto count = inf_system.erase<1>("Skoba");
-
-	cout << "Number of deleted lines: " << count << endl;
 	
 	system("pause");
 }

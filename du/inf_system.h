@@ -33,21 +33,26 @@ public:
 		return subvector;
 	}
 
+
 	template<size_t idx>
-        size_t erase(const type<idx>& value)
-        {
-		size_t count;
-                for (row_def &tup : vt) {
-                        cout << "Erasing " << get<idx>(tup) << endl;
-                        if (get<idx>(tup) == value) {
-				vt.erase(std::remove(vt.begin(), vt.end(), tup), vt.end());
-                                count++;
-                        }
+	size_t erase(const type<idx>& value)
+	{
+		size_t count = 0;
+		vector<row_def> subvector;
+		for (row_def &tup : vt) {
+			
+			if (get<idx>(tup) != value) {
+				//vt.erase(std::remove(vt.begin(), vt.end(), tup), vt.end());
+				subvector.push_back(tup);
+			}
+			else { count++; }
 
-                }
-                return count;
-        }
-
+		}
+		cout << "Number of deleted lines: " << count << endl;
+		
+		vt = subvector;
+		return count;
+	}
 
 private:
 	vector<row_def> vt;
