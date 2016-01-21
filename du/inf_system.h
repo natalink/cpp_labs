@@ -38,21 +38,19 @@ public:
 	size_t erase(const type<idx>& value)
 	{
 		size_t count = 0;
-		vector<row_def> subvector;
-		for (row_def &tup : vt) {
-			
-			if (get<idx>(tup) != value) {
-				//vt.erase(std::remove(vt.begin(), vt.end(), tup), vt.end());
-				subvector.push_back(tup);
-			}
-			else { count++; }
-
+		for (auto it = vt.begin(); it != vt.end(); ){
+		    if(get<idx>(*it) == value) {
+		        it = vt.erase(it);
+		        count++;
+		    }
+		    
+		    else{
+		        ++it;
+		    }
 		}
-		cout << "Number of deleted lines: " << count << endl;
-		
-		vt = subvector;
 		return count;
 	}
+
 
 private:
 	vector<row_def> vt;
